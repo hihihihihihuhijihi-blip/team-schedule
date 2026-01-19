@@ -1557,15 +1557,22 @@
       if (e.shiftKey && lastClickedCell) {
         e.preventDefault();
         selectRange(lastClickedCell, { tab, row, col });
-      } else {
+        initTable(tab);
+      } else if (e.ctrlKey || e.metaKey) {
+        // Ctrl+点击：多选
         if (selectedCells.some(c => c.row === row && c.col === col && c.tab === tab)) {
           selectedCells = selectedCells.filter(c => !(c.row === row && c.col === col && c.tab === tab));
         } else {
           selectedCells.push({ tab, row, col });
         }
         lastClickedCell = { tab, row, col };
+        initTable(tab);
+      } else {
+        // 普通点击：打开编辑弹窗
+        selectedCells = [];
+        lastClickedCell = null;
+        openCityModal(cell, tab, row, col);
       }
-      initTable(tab);
     }
 
     function selectRange(start, end) {
