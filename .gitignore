@@ -18,10 +18,7 @@ temp_*/
 __pycache__/
 
 # Claude
-.claude/*
-!.claude/skills/
-.claude/skills/*
-!.claude/skills/operation-ZS/
+.claude/
 
 # Next.js
 .next/
