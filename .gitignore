@@ -15,9 +15,13 @@ node_modules/
 *.log
 *.tmp
 temp_*/
+__pycache__/
 
 # Claude
-.claude/
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/operation-ZS/
 
 # Next.js
 .next/
@@ -25,3 +29,4 @@ temp_*/
 # 其他
 *.m4a
 *.xlsx
+.gstack/
